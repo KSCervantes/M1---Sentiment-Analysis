@@ -18,10 +18,10 @@ def get_api_key():
     """Get API key from Streamlit secrets (cloud) or environment variable (local)"""
     # Try Streamlit secrets first (for cloud deployment)
     try:
-        return st.secrets["AIzaSyAvTZC_DXUH5ZfGVLmGVhjScq-0UXUjvjo"]
+        return st.secrets["GEMINI_API_KEY"]
     except (KeyError, FileNotFoundError):
         # Fall back to environment variable (for local development)
-        return os.getenv("AIzaSyAvTZC_DXUH5ZfGVLmGVhjScq-0UXUjvjo")
+        return os.getenv("GEMINI_API_KEY")
 
 api_key = get_api_key()
 if not api_key:
